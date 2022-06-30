@@ -5,10 +5,13 @@ import (
 	"log"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/basicauth"
+	"github.com/gofiber/fiberv2/middleware/cors"
 )
 
 func main() {
 	app:= fiber.New() 
+	
+	app.use(cors.New())
 
     app.Use(basicauth.New(basicauth.Config{
 		Users: map[string]string {
